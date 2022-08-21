@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useLocation, useNavigate, useRoutes } from 'react-router-dom';
+import { routesConfiguration } from './routerConfiguration';
 
 function App() {
+  const navigate = useNavigate();
+  const router = useRoutes(routesConfiguration);
+  const location = useLocation();
+
+  function changeRoute(e: React.ChangeEvent<HTMLSelectElement>) {
+    navigate(e.target.value)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <div className="mx-auto container">
+        <div className="my-3 text-center">
+          Select the demo:
+          <select
+            className="form-control w-50 mx-auto"
+            onChange={changeRoute}
+            value={location.pathname}
+          >
+            {
+              routesConfiguration.map(item => {
+                return item.label ?
+                  <option key={item.path} value={item.path}>{item.label}</option> :
+                  null
+              })
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>{router}</div>
+    </>
+  )
 }
 
 export default App;
+
+
+
