@@ -1,20 +1,18 @@
 import React, { memo, useContext, useState } from 'react';
 
 /**
- * Nested context example
+ * Nested multiple context
  * UPDATE FROM PREVIOUS EXAMPLE: we use 2 different contexts instead one and they are nested
  * BAD: children components that use inner context are re-rendered
- * when the outer context is updated even if it's not necessary
+ * when the contexts are updated even if it's not necessary
  */
 
 interface Data {
   value: number | null,
 }
 
-
 const Data1Context = React.createContext<Data>({ value: null });
 const Data2Context = React.createContext<Data>({ value: null });
-
 
 /**
  * Main Smart Component

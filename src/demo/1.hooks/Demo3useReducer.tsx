@@ -2,8 +2,6 @@ import React, { useReducer } from 'react';
 
 /**
  * State management with useReducer
- * BAD: Children components are always updated when state changes because of drilling props
- * FIX: we memoize components with React.memo
  */
 interface AppState {
   value1: number;
@@ -23,10 +21,6 @@ function appReducer(state: AppState, action: AppActions) {
   }
 }
 
-/**
- * Main Smart Component
- * BAD: always rendered when state changes
- */
 export default function Demo3useReducer() {
   console.log('App: render')
   const [state, dispatch] = useReducer(appReducer, { value1: 1, value2: 0});
@@ -41,8 +35,6 @@ export default function Demo3useReducer() {
   );
 }
 
-// Middle Component
-// BAD: always rendered when state changes since it receives them as props
 interface DashboardProps {
   value1: number, value2: number
 }

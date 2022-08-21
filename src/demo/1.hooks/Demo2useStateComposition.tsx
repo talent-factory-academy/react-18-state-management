@@ -1,16 +1,10 @@
 import React, { PropsWithChildren, useCallback, useState } from 'react';
 
 /**
- * State management with useState and drilling props
- * BAD: Children components are always updated when state changes because of drilling props
- * FIX: we memoize components with React.memo
+ * State management with Composition
  */
 
 
-/**
- * Main Smart Component
- * BAD: always rendered when state changes
- */
 export default function Demo2useStateComposition() {
   console.log('App: render')
   const [value1, setValue1] = useState<number>(0);
@@ -49,7 +43,7 @@ const Dashboard = React.memo((props: PropsWithChildren<DashboardProps>) =>  {
 })
 
 // Child Component
-// BAD: rendered even when Random is updated and it's not necessary
+// GOOD: not rendered when VAlue2 changes
 const Panel1 = React.memo((props: { value: number }) => {
   console.log('  Panel1: render')
   return <div className="comp">
@@ -58,8 +52,7 @@ const Panel1 = React.memo((props: { value: number }) => {
 })
 
 // Child Component
-// BAD: rendered even when Count is updated and it's not necessary
-// FIXED: use React.memo to memoize it
+// GOOD: not rendered when VAlue1 changes
 const Panel2 = React.memo((props: { value: number }) => {
   console.log('  Panel2: render')
   return <div className="comp">

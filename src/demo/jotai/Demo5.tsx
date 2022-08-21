@@ -20,6 +20,8 @@ export default function JotaiDemo5 () {
   const [peopleAtoms] = useAtom(peopleAtomsAtom)
 
   return <div className="comp">
+    <h1>JOTAI: splitAtom</h1>
+
     <h3>Simple List (readable)</h3>
     {
       people.map((p, index) =>

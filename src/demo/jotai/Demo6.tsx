@@ -10,6 +10,7 @@ export default function JotaiDemo6() {
 
   return (
     <div>
+      <h1>JOTAI: atomWithStorage</h1>
       <h4>{theme}</h4>
       <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>Toggle Theme</button>
     </div>

@@ -39,7 +39,7 @@ export default function ZustandDemo3() {
 
   return (
     <div className="container">
-      <h3>Demo3: Zustand {activeId}</h3>
+      <h3>Demo3: Zustand Derived Async State -- id: {activeId}</h3>
       <button onClick={inc}>Next User</button>
       <Dashboard />
     </div>
@@ -62,7 +62,7 @@ const UserPanel: React.FC = () => {
   const pending = useStore(state => state.pending);
 
   return <pre className="comp">
-    {pending && <div>loading...</div> } {pending && <div>loading...</div> }
+    {pending && <div>loading...</div> }
     Users Panel {JSON.stringify(user, null, 2)}
   </pre>
 }

@@ -16,7 +16,7 @@ export default function ZustandDemo5() {
   console.log('------\nApp: render')
   return (
     <div className="container">
-      <h3>Demo5 multiple store: Zustand</h3>
+      <h3>Demo5: combine store slices</h3>
       <Dashboard />
     </div>
   );

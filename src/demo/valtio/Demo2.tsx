@@ -33,7 +33,7 @@ const derivedState = derive({
 
 // MANUAL SUBSCRIPTION
 // try it removing comments
-subscribe(state, () => console.log('state has changed to', state.count)) // output: proxy
+// subscribe(state, () => console.log('state has changed to', state.count)) // output: proxy
 // subscribeKey(derivedState, 'user', async (value) => console.log('state.count has changed to', await value, await derivedState.user));
 // subscribeKey(derivedState, 'user', async (value) => console.log('state.count has changed to', await value, derivedState.user));
 
@@ -45,6 +45,8 @@ export default function ValtioDemo2() {
       <h1>Demo B: valtio async / Suspense</h1>
       <Suspense fallback={<div>loading...</div>}>
         <UsersPanel />
+      </Suspense>
+      <Suspense fallback={<div>loading...</div>}>
         <button onClick={inc}>Next User</button>
         <UserPanel />
       </Suspense>

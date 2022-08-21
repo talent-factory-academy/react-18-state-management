@@ -1,8 +1,7 @@
 import React, {  useContext, useReducer } from 'react';
 
 /**
- * State management with useReducer
- * BAD: Children components are always updated when context is updated
+ * State management with Context and useReducer
  */
 
 interface AppState {
@@ -89,22 +88,21 @@ function Panel1 () {
   const dispatch = useContext(DispatchContext);
 
   return <div className="comp">
-    <div>Panel 1: Consume Data</div>
+    <div>Panel 1: Consume Data (both value1 & value2)</div>
     <div>{state?.value1} - {state?.value2}</div>
     <button onClick={() => dispatch({ type: 'updateValue1'})}>Update Value 1</button>
   </div>
 }
 
 // Child Component: produce / dispatch
-// BAD: always rendered when context changes since it receives them as props
-// FIXED: by memoization
-const Panel2 = React.memo(() => {
+// GOOD: not rendered when dataContext changes
+const Panel2 = (() => {
   console.log('  Panel2: render')
   const dispatch = useContext(DispatchContext);
 
   return <div className="comp">
-    <div>Panel 2: Emit Action</div>
-    <button onClick={() => dispatch({ type: 'updateValue1'})}>Update Value 2</button>  </div>
+    <div>Panel 2: Emit Action (update value2)</div>
+    <button onClick={() => dispatch({ type: 'updateValue2'})}>Update Value 2</button>  </div>
 })
 
 
