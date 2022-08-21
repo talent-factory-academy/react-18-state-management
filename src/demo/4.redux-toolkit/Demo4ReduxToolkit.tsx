@@ -33,7 +33,7 @@ export const store = configureStore({
 export type RootState = ReturnType<typeof rootReducer>
 
 
-export default function Demo4ReduxToolkit() {
+export default function Demo1ReduxToolkit() {
   return (
     <Provider store={store}>
       <App />

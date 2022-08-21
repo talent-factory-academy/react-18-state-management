@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import { atom, RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 // Atoms
@@ -17,7 +17,7 @@ export const randomState = atom<number>({
  * Root Component
  * Your app must be wrapper by RecoilRoot component
  */
-export default function Demo3Recoil() {
+export default function RecoilDemo1() {
   return (
     <RecoilRoot>
       <App />

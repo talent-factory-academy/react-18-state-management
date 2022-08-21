@@ -8,6 +8,8 @@ import Demo2BContext from './demo/2.context/Demo2BContext';
 import Demo2CContext from './demo/2.context/Demo2CContext';
 import Demo2DContext from './demo/2.context/Demo2DContext';
 import Demo2EContextUseReducer from './demo/2.context/Demo2EContextUseReducer';
+import RecoilDemo1 from './demo/3.recoil/Demo3Recoil';
+import ReduxToolkitDemo1 from './demo/4.redux-toolkit/Demo4ReduxToolkit';
 import JotaiDemo1 from './demo/jotai/Demo1';
 import JotaiDemo2 from './demo/jotai/Demo2';
 import JotaiDemo3async from './demo/jotai/Demo3async';
@@ -48,6 +50,8 @@ export const routesConfiguration =  [
   { path: "/jotai4", element: <JotaiDemo4 />, label: 'Jotai 4: atomWithHash -> Router Params' },
   { path: "/jotai5", element: <JotaiDemo6 />, label: 'Jotai 5:  atomWithStorage' },
   { path: "/jotai6", element: <JotaiDemo5 />, label: 'Jotai 6: splitAtom' },
+  { path: "/redux-toolkit", element: <ReduxToolkitDemo1 />, label: 'Redux Toolkit' },
+  { path: "/recoil", element: <RecoilDemo1 />, label: 'Recoil' },
   /*{ path: "/jotai7", element: <JotaiDemo7 />, label: 'Jotai 7' },*/
   /*{ path: "/jotai8", element: <JotaiDemoAll />, label: 'Jotai 8' },*/
   { index: true, element: <Navigate to={'/useState'} /> }
